@@ -1,8 +1,6 @@
 ARG UBI_MINIMAL_VERSION="8.6-902"
 FROM registry.access.redhat.com/ubi8/ubi-minimal:${UBI_MINIMAL_VERSION}
 
-MAINTAINER Tal Revah <tal.revah@gmail.com>
-
 LABEL Remarks="This is a Dockerfile for the rhel8 Azure DevOps agent"
 
 #Update Software Repository
