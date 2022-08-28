@@ -20,13 +20,9 @@ ENV TARGETARCH=rhel.6-x64
 
 WORKDIR /azp
 
-COPY ./start.sh .
+COPY start.sh vsts-agent-rhel.6-x64-2.206.1.tar.gz ./
 
-COPY ./vsts-agent-rhel.6-x64-2.206.1.tar.gz .
-
-RUN tar -xzf vsts-agent-rhel.6-x64-2.206.1.tar.gz && rm vsts-agent-rhel.6-x64-2.206.1.tar.gz
-
-RUN chmod +x start.sh
+RUN tar -xzf vsts-agent-rhel.6-x64-2.206.1.tar.gz && rm vsts-agent-rhel.6-x64-2.206.1.tar.gz && chmod +x start.sh
 
 ENTRYPOINT [ "./start.sh" ]
 
