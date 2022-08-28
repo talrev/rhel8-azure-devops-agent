@@ -63,13 +63,14 @@ if [ -z "$AZP_AGENT_PACKAGE_LATEST_URL" -o "$AZP_AGENT_PACKAGE_LATEST_URL" == "n
   exit 1
 fi
 
-print_header "2. Downloading and extracting Azure Pipelines agent..."
+#print_header "2. Downloading and extracting Azure Pipelines agent..."
 
-curl -LsS $AZP_AGENT_PACKAGE_LATEST_URL | tar -xz & wait $!
+#curl -LsS $AZP_AGENT_PACKAGE_LATEST_URL | tar -xz & wait $!
 
 source ./env.sh
 
-print_header "3. Configuring Azure Pipelines agent..."
+#print_header "3. Configuring Azure Pipelines agent..."
+print_header "2. Configuring Azure Pipelines agent..."
 
 ./config.sh --unattended \
   --agent "${AZP_AGENT_NAME:-$(hostname)}" \
@@ -81,7 +82,8 @@ print_header "3. Configuring Azure Pipelines agent..."
   --replace \
   --acceptTeeEula & wait $!
 
-print_header "4. Running Azure Pipelines agent..."
+#print_header "4. Running Azure Pipelines agent..."
+print_header "3. Running Azure Pipelines agent..."
 
 trap 'cleanup; exit 0' EXIT
 trap 'cleanup; exit 130' INT
